@@ -48,9 +48,17 @@ class LeaveUsesRepository extends BaseRepository
      * @param string
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function AllByUser(string $userId)
+    public function AllByUser(string $userId, string $fromDate=null, string $toDate=null)
     {
-        return $this->model->where('user_id', $userId)->orderBy('use_date', 'desc')->get();
+        $model = $this->model->where('user_id', $userId);
+        if (!is_null($fromDate)) {
+            $model = $model->fromDate($fromDate);
+        }
+        if (!is_null($toDate)) {
+            $model = $model->toDate($toDate);
+        }
+
+        return $model->orderBy('use_date', 'desc')->get();        
     }
 
 }

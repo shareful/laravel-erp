@@ -3,6 +3,7 @@
 namespace App\Models\Leave;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 /**
  * class LeaveUses 
@@ -34,8 +35,32 @@ class LeaveUses extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function leaveApplication()
-    {
-        //Has one category
+    {        
         return $this->belongsTo(LeaveApplication::class);
     }
+
+    /**
+     * Scope a query to only include uses from the date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $fromDate
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFromDate($query, $fromDate)
+    {
+        return $query->whereDate('use_date', '>=', Carbon::parse($fromDate));
+    }
+
+    /**
+     * Scope a query to only include uses till the date.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $toDate
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeToDate($query, $toDate)
+    {
+        return $query->whereDate('use_date', '<=', Carbon::parse($toDate));
+    }
+
 }

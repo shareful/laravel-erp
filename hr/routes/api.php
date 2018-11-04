@@ -32,8 +32,11 @@ Route::group(['prefix' => 'v1'],function(){
 	    Route::get('leave_applications/my/list', 'Api\V1\Leave\ApplicationsController@listByAuthUser');
 
 	    // Leave already uses by an user
+	    // Example: /leave/uses/1?from_date=2018-11-01&to_date=2018-11-05
 	    Route::get('leave/uses/{user_id}', 'Api\V1\Leave\UsesController@listByUser');
+
 	    // Leave uses by auth/logged in user
+	    // Example: /leave/my/uses?from_date=2018-11-01&to_date=2018-11-05
 	    Route::get('leave/my/uses', 'Api\V1\Leave\UsesController@listByAuthUser');
 	});
 });

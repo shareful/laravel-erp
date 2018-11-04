@@ -39,7 +39,7 @@ class SubmitApplicationController extends Controller
 
     /**
      * Submit a Leav of Application api
-     * POST api/leave/apply
+     * POST api/v1/leave/apply
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -80,7 +80,7 @@ class SubmitApplicationController extends Controller
 
     /**
      * Leave Application Approve API
-     * PUT api/leave_application/approve/{application_id}
+     * PUT api/v1/leave_application/approve/{application_id}
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -107,7 +107,7 @@ class SubmitApplicationController extends Controller
 
     /**
      * Leave Application Deny API
-     * PUT api/leave_application/deny/{application_id}
+     * PUT api/v1/leave_application/deny/{application_id}
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

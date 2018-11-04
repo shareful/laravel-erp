@@ -40,7 +40,7 @@ class ApplicationsController extends Controller
 
     /**
      * Return list of application
-     * GET - api/leave_applications/list
+     * GET - api/v1/leave_applications/list
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -60,7 +60,7 @@ class ApplicationsController extends Controller
 
     /**
      * Return a detail of an application
-     * GET - api/leave_application/show/{id}
+     * GET - api/v1/leave_application/show/{application_id}
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -77,7 +77,7 @@ class ApplicationsController extends Controller
 
     /**
      * Return list of application
-     * GET - api/leave_applications/list
+     * GET - api/v1/leave_applications/list/{user_id}
      *
      * @param String $userId
      * @return \Illuminate\Http\JsonResponse
@@ -97,7 +97,7 @@ class ApplicationsController extends Controller
 
     /**
      * Return list of applications of auth user
-     * GET - api/leave_applications/my/list
+     * GET - api/v1/leave_applications/my/list
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

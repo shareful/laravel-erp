@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1\Leave;
 
 use App\Models\Leave\LeaveApplication;
+use App\Models\Leave\LeaveUses;
 use App\Http\Resources\Leave\LeaveApplicationResource;
 use App\Http\Resources\Leave\LeaveUsesResourceCollection;
 use App\Repositories\Leave\LeaveUsesRepository;
@@ -41,14 +42,16 @@ class UsesController extends Controller
 
     /**
      * Return list of application
-     * GET - api/leave_applications/list
+     * GET - api/v1/leave/uses/{user_id}?from_date=2018-11-01&to_date=2018-11-05
      *
      * @param string $userId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function listByUser(string $userId)
+    public function listByUser(string $userId, Request $request)
     {
-        $data = $this->leaveUsesRepo->AllByUser($userId);
+        $fromDate = $request->from_date;
+        $toDate = $request->to_date;
+        $data = $this->leaveUsesRepo->AllByUser($userId, $fromDate, $toDate);
 
         return response()->json([
             'status' => 'Success',
@@ -61,14 +64,14 @@ class UsesController extends Controller
 
     /**
      * Return list of applications of auth user
-     * GET - api/leave_applications/my/list
+     * GET - api/v1/leave/my/uses?from_date=2018-11-01&to_date=2018-11-05
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function listByAuthUser()
+    public function listByAuthUser(Request $request)
     {
-        return $this->listByUser(config('user.id'));
+        return $this->listByUser(config('user.id'), $request);
     }
 }
     
