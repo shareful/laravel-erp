@@ -41,7 +41,7 @@ class UsesController extends Controller
 
 
     /**
-     * Return list of application
+     * Leave already uses by an user
      * GET - api/v1/leave/uses/{user_id}?from_date=2018-11-01&to_date=2018-11-05
      *
      * @param string $userId

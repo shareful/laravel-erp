@@ -76,7 +76,7 @@ class ApplicationsController extends Controller
     }
 
     /**
-     * Return list of application
+     * Return list of applications applied by a User
      * GET - api/v1/leave_applications/list/{user_id}
      *
      * @param String $userId

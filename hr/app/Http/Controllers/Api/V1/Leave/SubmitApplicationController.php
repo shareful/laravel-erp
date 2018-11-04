@@ -38,7 +38,7 @@ class SubmitApplicationController extends Controller
     }
 
     /**
-     * Submit a Leav of Application api
+     * Submit a Leave Application api
      * POST api/v1/leave/apply
      *
      * @param Request $request

@@ -26,7 +26,7 @@ Route::group(['prefix' => 'v1'],function(){
 	    Route::get('leave_applications/list', 'Api\V1\Leave\ApplicationsController@list');
 	    // A Leave application details
 	    Route::get('leave_application/show/{application_id}', 'Api\V1\Leave\ApplicationsController@show');
-	    // Leave Applications list for an user
+	    // Get Leave Applications list applied by a user
 	    Route::get('leave_applications/list/{user_id}', 'Api\V1\Leave\ApplicationsController@listByUser');
 	    // Leave Applications list for auth/logged in user
 	    Route::get('leave_applications/my/list', 'Api\V1\Leave\ApplicationsController@listByAuthUser');
