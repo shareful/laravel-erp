@@ -2,7 +2,7 @@ User Module API Service
 =====
 
 
-This is User Module micro service of Larevl ERP project. Provides API access only. This provides uthentication service for user using JWT for other micro services.
+This is User Module micro service of Larevl ERP project. Provides API access only. This provides authentication service for user using JWT for other micro services.
 
 Features Completed
 -------

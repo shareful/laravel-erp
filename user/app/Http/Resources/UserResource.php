@@ -4,7 +4,6 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 use App\Models\User;
-use Carbon\Carbon;
 
 /**
  * class UserResource 

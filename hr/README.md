@@ -49,7 +49,7 @@ API Available
 	```
 	GET api/v1/leave_applications/list/{user_id}
 	```	
-6. Get Leave Applications list applied by looged in or auth user
+6. Get Leave Applications list applied by logged in or auth user
 	```
 	GET api/v1/leave_applications/my/list
 	```		
