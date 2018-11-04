@@ -64,7 +64,7 @@ class UserHttpClient
                 'Accept'        => 'application/json',
             ];            
         $this->client = new Client([
-            'base_uri' => env("USER_API_BASE_URI", "http://localhost:8081/")
+            'base_uri' => env("USER_API_BASE", "http://localhost:8081/")
         ]);
     }
 
