@@ -11,6 +11,7 @@ Features Completed
 	- User Registration
 	- User Login
 	- User Authentication
+* Swagger API documentation implemented
 
 To Do
 -------
@@ -22,6 +23,8 @@ To Do
 
 API Available
 -------
+
+For full API documentation run `php artisan l5-swagger:generate`
 
 1. User Registration
 	```
