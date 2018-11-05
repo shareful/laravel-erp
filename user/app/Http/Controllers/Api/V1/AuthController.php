@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\User;
-use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Illuminate\Support\Facades\Auth;
@@ -12,12 +12,12 @@ use App\Repositories\UserRepository;
 
 /**
  * class AuthController 
- * Extends App\Http\Controllers\Controller
+ * Extends App\Http\Controllers\Api\V1\ApiBaseController
  *
  * @package App\Http\Controllers\Api\V1
  * @author Shareful Islam <km.shareful@gmail.com>
  */
-class AuthController extends Controller
+class AuthController extends ApiBaseController
 {
     /**
      * User Repository.
@@ -43,6 +43,45 @@ class AuthController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @SWG\Post(
+     *      path="/login",
+     *      summary="User Login",
+     *      tags={"User"},
+     *      description="Login toUser Account. On successfull return user details with JWT token",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="email",
+     *          in="body",
+     *          description="User Email Address",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Parameter(
+     *          name="password",
+     *          in="body",
+     *          description="User Password",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="status",
+     *                  type="string"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="object",
+     *              )
+     *          )
+     *      )
+     * )     
      */
     public function login()
     {
@@ -69,6 +108,29 @@ class AuthController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @SWG\Get(
+     *      path="/me",
+     *      summary="Authenticated User",
+     *      tags={"User"},
+     *      description="Get the authenticated User. On successfull return logged in user details with JWT token",
+     *      produces={"application/json"},
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="status",
+     *                  type="string"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="object",
+     *              )
+     *          )
+     *      )
+     * )     
      */
     public function me()
     {
@@ -93,6 +155,25 @@ class AuthController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @SWG\Get(
+     *      path="/logout",
+     *      summary="User Logout",
+     *      tags={"User"},
+     *      description="Log the user out (Invalidate the token)",
+     *      produces={"application/json"},
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )          
      */
     public function logout()
     {
@@ -107,7 +188,30 @@ class AuthController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
-     */
+     *
+     * @SWG\Get(
+     *      path="/refresh",
+     *      summary="Refresh Token",
+     *      tags={"User"},
+     *      description="Regenerate user JWT token",
+     *      produces={"application/json"},
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="status",
+     *                  type="string"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="object"
+     *              )
+     *          )
+     *      )
+     * )          
+     */     
     public function refresh()
     {
         $token = auth()->refresh();

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\User;
-use App\Http\Controllers\Controller;
+// use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
@@ -14,12 +14,12 @@ use App\Repositories\UserRepository;
 
 /**
  * class RegisterController 
- * Extends App\Http\Controllers\Controller
+ * Extends App\Http\Controllers\Api\V1\ApiBaseController
  *
  * @package App\Http\Controllers\Api\V1
  * @author Shareful Islam <km.shareful@gmail.com>
  */
-class RegisterController extends Controller
+class RegisterController extends ApiBaseController
 {
     /**
      * User Repository.
@@ -45,6 +45,61 @@ class RegisterController extends Controller
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
+     *
+     * @SWG\Post(
+     *      path="/register",
+     *      summary="Register A User",
+     *      tags={"User"},
+     *      description="Create User Account. On successfull return user details with JWT token",
+     *      produces={"application/json"},
+     *      @SWG\Parameter(
+     *          name="name",
+     *          in="formData",
+     *          description="User Full Name",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Parameter(
+     *          name="email",
+     *          in="body",
+     *          description="User Email Address",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Parameter(
+     *          name="password",
+     *          in="body",
+     *          description="User Password",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Parameter(
+     *          name="password_confirmation",
+     *          in="body",
+     *          description="Password Confirmation",
+     *          required=true,
+     *          type="string",
+     *          @SWG\Schema(type="string"),
+     *      ),
+     *      @SWG\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @SWG\Schema(
+     *              type="object",
+     *              @SWG\Property(
+     *                  property="status",
+     *                  type="string"
+     *              ),
+     *              @SWG\Property(
+     *                  property="data",
+     *                  type="object",
+     *              )
+     *          )
+     *      )
+     * )     
      */
     public function register(Request $request)
     {
