@@ -7,6 +7,42 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * class User 
+ * Extends Illuminate\Foundation\Auth\User
+ * Implements Tymon\JWTAuth\Contracts\JWTSubject
+ *
+ * @package App\Models
+ * @author Shareful Islam <km.shareful@gmail.com>
+ * 
+ * @SWG\Definition(
+ *      definition="User",
+ *      required={"name", "email", "password"},
+ *      type="object",
+ *      @SWG\Property(
+ *          property="id",
+ *          description="User Id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="name",
+ *          description="User Full Name",
+ *          type="string",
+ *      ),
+ *      @SWG\Property(
+ *          property="email",
+ *          description="User Email Address",
+ *          type="string",
+ *          format="email"
+ *      ),
+ *      @SWG\Property(
+ *          property="password",
+ *          description="User Password",
+ *          type="string",
+ *      ),
+ * )
+ */
 class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;

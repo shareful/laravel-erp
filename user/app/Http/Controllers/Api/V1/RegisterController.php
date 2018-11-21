@@ -61,15 +61,16 @@ class RegisterController extends ApiBaseController
      *      ),
      *      @SWG\Parameter(
      *          name="email",
-     *          in="body",
+     *          in="formData",
      *          description="User Email Address",
      *          required=true,
      *          type="string",
+     *          format="email",
      *          @SWG\Schema(type="string"),
      *      ),
      *      @SWG\Parameter(
      *          name="password",
-     *          in="body",
+     *          in="formData",
      *          description="User Password",
      *          required=true,
      *          type="string",
@@ -77,7 +78,7 @@ class RegisterController extends ApiBaseController
      *      ),
      *      @SWG\Parameter(
      *          name="password_confirmation",
-     *          in="body",
+     *          in="formData",
      *          description="Password Confirmation",
      *          required=true,
      *          type="string",

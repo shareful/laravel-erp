@@ -24,7 +24,7 @@ To Do
 API Available
 -------
 
-For full API documentation run `php artisan l5-swagger:generate`
+For full API documentation run `php artisan l5-swagger:generate` and go to {APP_URL}api/documentation
 
 1. User Registration
 	```
@@ -61,6 +61,7 @@ Install
 
 * Run `composer install`
 * Rename `.env.example` to `.env` file and chnage your configuration as you needs.
+* Add `SWAGGER_VERSION=2.0` to `.env` file for Swagger API documentation.
 * generate APP_KEY by command by `php artisan key:generate`
 * Run `php artisan migrate` 
 * Run `php artisan serve --port=8081 --host=0.0.0.0` to up the server in port 8081. 
