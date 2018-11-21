@@ -10,6 +10,47 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models\Leave
  * @author Shareful Islam <km.shareful@gmail.com>
+ * 
+ * @SWG\Definition(
+ *      definition="LeaveApplication",
+ *      required={"start_date", "end_date", "leave_type", "reason"},
+ *      type="object",
+ *      @SWG\Property(
+ *          property="id",
+ *          description="Leave Application Id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="start_date",
+ *          description="Date From",
+ *          type="string",
+ *          format="date"
+ *      ),
+ *      @SWG\Property(
+ *          property="end_date",
+ *          description="Date Thru",
+ *          type="string",
+ *          format="date"
+ *      ),
+ *      @SWG\Property(
+ *          property="leave_type",
+ *          description="Type of Leave",
+ *          type="string",
+ *          enum={"Sick", "Casual", "Earned", "Maternity", "Paternity"}
+ *      ),
+ *      @SWG\Property(
+ *          property="reason",
+ *          description="Reason of Leave",
+ *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="status",
+ *          description="Status of the Application",
+ *          type="string",
+ *          enum={"Pending", "Approved", "Denied"}
+ *      )
+ * )
  */
 class LeaveApplication extends Model
 {
@@ -47,6 +88,7 @@ class LeaveApplication extends Model
      */
     protected $fillable = ['user_id', 'start_date', 'end_date', 'leave_type', 'reason'];
 
+    
     /**
      * Leave Uses for the application
      *

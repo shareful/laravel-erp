@@ -24,6 +24,8 @@ To Do
 API Available
 -------
 
+For full API documentation run `php artisan l5-swagger:generate` and go to {APP_URL}api/documentation
+
 1. Submit a Leave Application
 	```
 	POST api/v1/leave/apply
@@ -74,6 +76,7 @@ Install
 
 * Run `composer install`
 * Rename `.env.example` to `.env` file and chnage your configuration as you needs.
+* Add `SWAGGER_VERSION=2.0` to `.env` file for Swagger API documentation.
 * Add a env config with name `USER_API_BASE` and set User Module Microservice API base url. example: http://localhost:8081/ 
 * generate APP_KEY by command by `php artisan key:generate`
 * Run `php artisan migrate` 

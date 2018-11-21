@@ -11,6 +11,36 @@ use Carbon\Carbon;
  *
  * @package App\Models\Leave
  * @author Shareful Islam <km.shareful@gmail.com>
+ * 
+ * @SWG\Definition(
+ *      definition="LeaveUses",
+ *      required={"use_date", "user_id", "application_id"},
+ *      type="object",
+ *      @SWG\Property(
+ *          property="id",
+ *          description="Uses Id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="use_date",
+ *          description="Date of Uses",
+ *          type="string",
+ *          format="date"
+ *      ),
+ *      @SWG\Property(
+ *          property="user_id",
+ *          description="User Id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *      @SWG\Property(
+ *          property="application_id",
+ *          description="Application Id",
+ *          type="ineteger",
+ *          format="int32"
+ *      )
+ * )
  */
 class LeaveUses extends Model
 {
